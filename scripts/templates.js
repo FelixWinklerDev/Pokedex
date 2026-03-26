@@ -1,0 +1,5 @@
+function getPokemonCardTemplate(pokemon){
+    return`
+    
+    `
+}

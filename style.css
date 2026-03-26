@@ -1,0 +1,10 @@
+.header-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-container{
+    width: 100%;
+    background-color: #333;
+}
