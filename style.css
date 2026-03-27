@@ -10,7 +10,7 @@
 }
 
 .frontcard{
-    height: 250px;
+    height: 280px;
     width: 200px;
     border: solid #111 1px; 
     border-radius: 12px;
@@ -33,4 +33,9 @@
 #content{
     display: flex;
     flex-wrap: wrap;
+}
+
+.main-type,
+.secondary-type{
+    font-family: 'Alatsi-Regular';
 }
