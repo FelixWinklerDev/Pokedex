@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Felixs Pokèdex</title>
     <link rel="shortcut icon" href="./assets/img/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="all">
     <link rel="stylesheet" href="./styles/assets.css">
     <link rel="stylesheet" href="./styles/global.css">
     <script src="script.js"></script>
     <script src="./scripts/color.js"></script>
     <script src="./scripts/templates.js"></script>
 </head>
-<body>
+<body onload="getPokemonData()">
     <header class="header-container">
       <div class="header-wrapper">
         <img class="pokeball" src="./assets/img/95c-pokeball-1594373_1280.png" alt="Pokéball">
@@ -22,6 +22,9 @@
     <main id="content">
       
     </main>
+    <section>
+      <button class="loading-btn" onclick="getPokemonData()">bring more Pokèmon</button>
+    </section>
     <footer>
 
     </footer>

@@ -25,3 +25,8 @@ html{
     scroll-behavior: smooth;
     background-color: #4b4b4b;
 }
+
+button{
+	border-width: 0;
+	cursor: pointer;
+}

@@ -1,14 +1,24 @@
-async function fetchDataJson() {
-    let container = document.getElementById('content');
+let currentOffset = 0;
 
-    let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025&offset=0');
-    let responseAsJson = await response.json();
+async function getPokemonData() {
+    let url = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${currentOffset}`;
+    let response = await fetch(url);
+    let currentResponse = await response.json();
 
-    responseAsJson.results.forEach(pokemon => {
-        container.innerHTML += getPokemonCardTemplate(pokemon)
-});
+    renderPokemon(currentResponse.results);
+
+    currentOffset += 20;
 }
 
-function renderPokecard(){
+async function renderPokemon(pokemonList) {
+    let contentContainer = document.getElementById('content');
 
+    for (let i = 0; i < pokemonList.length; i++) {
+        const pokemonShortInfo = pokemonList[i];
+
+        let detailResponse = await fetch(pokemonShortInfo.url);
+        let pokemonDetails = await detailResponse.json();
+
+        contentContainer.innerHTML += getPokemonCardTemplate(pokemonDetails);
+    }
 }
