@@ -4,7 +4,11 @@ async function fetchDataJson() {
     let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025&offset=0');
     let responseAsJson = await response.json();
 
-    responseAsJson.forEach(pokemon => {
-        container.innerHTML += getPokemonCardTemplate(pokemon); 
-    });
+    responseAsJson.results.forEach(pokemon => {
+        container.innerHTML += getPokemonCardTemplate(pokemon)
+});
+}
+
+function renderPokecard(){
+
 }
