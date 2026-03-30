@@ -1,5 +1,4 @@
 function getPokemonCardTemplate(pokemon){
-  let type1 = pokemon.types[0].name;
   let type2 = pokemon.types.length > 1 ? pokemon.types[1].type.name : "";
     
   return`
