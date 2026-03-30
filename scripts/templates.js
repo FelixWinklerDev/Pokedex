@@ -7,12 +7,12 @@ function getPokemonCardTemplate(pokemon){
           <p>#${pokemon.id}</p>
           <h3>${pokemon.species.name}</h3>
         </div>
-        <div class="pokemoncard">
+        <div class="pokemoncard bg_${pokemon.types[0].type.name}">
           <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
         </div>
         <div class="typecard">
-          <p class="main-type">${pokemon.types[0].type.name}</p>
-          ${type2 ? `<p class="secondary-type">${type2}</p>` : ''}
+          <p class="main-type bg_${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p>
+          ${type2 ? `<p class="secondary-type bg_${pokemon.types[1].type.name}">${type2}</p>` : ''}
         </div>
       </div>
     `
