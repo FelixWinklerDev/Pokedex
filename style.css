@@ -9,6 +9,19 @@
     background-color: #333;
 }
 
+#search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header-btn{
+    font-family: 'Alatsi-Regular';
+    border-radius: 5px;
+}
+
 .frontcard{
     height: 260px;
     width: 200px;

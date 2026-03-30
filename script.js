@@ -1,13 +1,11 @@
 let currentOffset = 0;
 
 async function getPokemonData() {
-    let url = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${currentOffset}`;
-    let response = await fetch(url);
-    let currentResponse = await response.json();
-
-    renderPokemon(currentResponse.results);
-
-    currentOffset += 20;
+    let url = `https://pokeapi.co/api/v2/pokemon?limit=24&offset=${currentOffset}`;
+        let response = await fetch(url);
+        let currentResponse = await response.json();
+    await renderPokemon(currentResponse.results);
+    currentOffset += 24;
 }
 
 async function renderPokemon(pokemonList) {
@@ -21,4 +19,14 @@ async function renderPokemon(pokemonList) {
 
         contentContainer.innerHTML += getPokemonCardTemplate(pokemonDetails);
     }
+}
+
+async function openDetails(id){
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    let data = await response.json();
+
+    let dialogRef = document.getElementById('dialog-container')
+    dialogRef.innerHTML = getDialogTemplate(data);
+    dialogRef.showModal();
+    dialogRef.classList.add('opened');
 }

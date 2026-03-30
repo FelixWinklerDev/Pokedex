@@ -14,20 +14,28 @@
     <script src="./scripts/templates.js"></script>
 </head>
 <body onload="getPokemonData()">
-    <header class="header-container">
-      <div class="header-wrapper">
-        <img class="pokeball" src="./assets/img/95c-pokeball-1594373_1280.png" alt="Pokéball">
-        <img class="logo" src="./assets/img/Pekedex.png" alt="Logo">
-      </div>  
-    </header>
-    <main id="content">
-      
-    </main>
-    <section class="button-position">
-      <button class="loading-btn" onclick="getPokemonData()">bring more Pokèmon</button>
+  <header class="header-container">
+    <div class="header-wrapper">
+      <img class="pokeball" src="./assets/img/95c-pokeball-1594373_1280.png" alt="Pokéball">
+      <img class="logo" src="./assets/img/Pekedex.png" alt="Logo">
+    </div>  
+    <section id="search">
+      <input id="searchInput" type="text">
+      <button class="header-btn" onclick="findPokemon()">search</button>
     </section>
-    <footer>
+  </header>
+  <main id="content">
+    
+  </main>
+  <section class="button-position">
+    <button class="loading-btn" onclick="getPokemonData()">bring more Pokèmon</button>
+  </section>
+  <section id="loading-screen" class="dnone">
+    <div class="spinner"></div> 
+    <p>Lade Pokémon...</p>
+  </section>
+  <dialog id="dialog-container">
 
-    </footer>
+  </dialog>
 </body>
 </html>
