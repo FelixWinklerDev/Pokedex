@@ -51,3 +51,11 @@ function showLoading() {
 function hideLoading() {
     document.getElementById('loading-overlay').classList.add('d-none');
 }
+
+async function findPokemon(){
+    let inputRef = document.getElementById('searchInput').value;
+    let wantedPokemonRef = inputRef.toLowerCase();
+    if (wantedPokemonRef === "") return;
+    showLoading();
+    let url = `https://pokeapi.co/api/v2/pokemon/${wantedPokemonRef}`;
+}

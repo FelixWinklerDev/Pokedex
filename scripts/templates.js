@@ -25,7 +25,8 @@ function getDialogTemplate(pokemon){
     <div class="dialogcard">
       <div class="header-section">
         <div class="cry-section">
-          <button class="cry" onclick="startSound('${pokemon.cries.latest}')">Cry</button>
+          <button class="cry" onclick="startSound('${pokemon.cries.latest}')"><img class="speaker" src="./assets/icons/josy_dom_alexis-icon-1628258_640.png" alt="Lautsprecher"></button>
+          <p>X</p>
         </div>
         <p>#${pokemon.id}</p>
         <h3>${pokemon.species.name}</h3>
