@@ -23,7 +23,7 @@ async function renderPokemon(pokemonList) {
 
 async function openDetails(id) {
     let dialogRef = document.getElementById('dialog-container');
-    
+
     try {
         let responseForDialog = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
         let pokeData = await responseForDialog.json();
@@ -34,4 +34,10 @@ async function openDetails(id) {
     } catch (error) {
         console.error(error);
     }
+}
+
+function startSound(url){
+    let audio = new Audio(url);
+    audio.volume = 0.05;
+    audio.play();
 }
