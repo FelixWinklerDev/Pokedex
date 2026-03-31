@@ -80,4 +80,42 @@
 .dialogcard{
     height: 700px;
     width: 800px;
+    background-color: #777;
+}
+
+.dialogcard.opened{
+    opacity: 0.7;
+}
+
+.d-none{
+    display: none;
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner{
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite; 
+}
+
+.spinner {
+    color: #fff;
+    font-family: 'Alatsi-Regular';
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
 }

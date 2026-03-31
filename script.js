@@ -1,11 +1,13 @@
 let currentOffset = 0;
 
 async function getPokemonData() {
+    showLoading()
     let url = `https://pokeapi.co/api/v2/pokemon?limit=24&offset=${currentOffset}`;
         let response = await fetch(url);
         let currentResponse = await response.json();
     await renderPokemon(currentResponse.results);
     currentOffset += 24;
+    hideLoading()
 }
 
 async function renderPokemon(pokemonList) {
@@ -40,4 +42,12 @@ function startSound(url){
     let audio = new Audio(url);
     audio.volume = 0.05;
     audio.play();
+}
+
+function showLoading() {
+    document.getElementById('loading-overlay').classList.remove('d-none');
+}
+
+function hideLoading() {
+    document.getElementById('loading-overlay').classList.add('d-none');
 }
