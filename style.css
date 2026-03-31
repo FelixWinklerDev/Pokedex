@@ -76,3 +76,8 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+.dialogcard{
+    height: 700px;
+    width: 800px;
+}

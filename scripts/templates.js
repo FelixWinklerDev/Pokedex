@@ -1,8 +1,8 @@
-function getPokemonCardTemplate(pokemon, pokemonDetails){
+function getPokemonCardTemplate(pokemon){
   let type2 = pokemon.types.length > 1 ? pokemon.types[1].type.name : "";
     
   return`
-    <div class="frontcard" onclick="openDetails('${pokemonDetails.name}')">
+    <div class="frontcard" onclick="openDetails(${pokemon.id})">
         <div class="headcard">
           <p>#${pokemon.id}</p>
           <h3>${pokemon.species.name}</h3>
@@ -19,6 +19,8 @@ function getPokemonCardTemplate(pokemon, pokemonDetails){
 }
 
 function getDialogTemplate(pokemon){
+  let type2 = pokemon.types.length > 1 ? pokemon.types[1].type.name : "";
+
 return`
   <div class="dialogcard">
         <div class="header-section">

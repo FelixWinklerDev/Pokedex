@@ -21,12 +21,17 @@ async function renderPokemon(pokemonList) {
     }
 }
 
-async function openDetails(id){
-    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    let data = await response.json();
+async function openDetails(id) {
+    let dialogRef = document.getElementById('dialog-container');
+    
+    try {
+        let responseForDialog = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        let pokeData = await responseForDialog.json();
 
-    let dialogRef = document.getElementById('dialog-container')
-    dialogRef.innerHTML = getDialogTemplate(data);
-    dialogRef.showModal();
-    dialogRef.classList.add('opened');
+        dialogRef.innerHTML = getDialogTemplate(pokeData);
+        dialogRef.showModal();
+        dialogRef.classList.add('opened');
+    } catch (error) {
+        console.error(error);
+    }
 }
