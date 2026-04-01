@@ -67,5 +67,7 @@ async function findPokemon(){
     let url = `https://pokeapi.co/api/v2/pokemon/${wantedPokemonRef}`;
         let response = await fetch(url)
         let pokemonDetails = await response.json();
-
+    hideLoading();
+    getPokemonCardTemplate(pokemonDetails);
+    openDetails(wantedPokemonRef);
 }
