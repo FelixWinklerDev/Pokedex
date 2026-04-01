@@ -54,9 +54,15 @@
     justify-content: space-evenly;
 }
 
+.typecard-dialog{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .main-type,
 .secondary-type{
-    font-family: 'Alatsi-Regular';
+    font-family: 'Orbitron-Medium';
     padding: 5px;
     width: 70px;
     text-align: center;
@@ -105,6 +111,10 @@
     width: 20px;
 }
 
+.flex{
+    display: flex;
+}
+
 .d-none{
     display: none;
 }
@@ -142,4 +152,25 @@
     to {
         transform: rotate(360deg);
             }
+}
+
+.dialog-img{
+    background-image: url(assets/icons/ginlimone-monster-ball-8084507_640.png);
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 280px;
+    height: 280px;
+    width: 280px;
+}
+
+.flex-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#general-info{
+    background-color: lightgray;
+    padding: 20px;
 }

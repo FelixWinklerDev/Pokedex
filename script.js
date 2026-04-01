@@ -47,7 +47,7 @@ function closeDialog() {
 
 function startSound(url){
     let audio = new Audio(url);
-    audio.volume = 0.05;
+    audio.volume = 0.1;
     audio.play();
 }
 
@@ -70,4 +70,20 @@ async function findPokemon(){
     hideLoading();
     getPokemonCardTemplate(pokemonDetails);
     openDetails(wantedPokemonRef);
+}
+
+function formatToDimensions(dimension) {
+    let converted = dimension / 10;
+    let formatted = converted.toFixed(1); 
+    let dotReplace = formatted.replace('.', ',');
+    return dotReplace;
+}
+
+function filterPokemon(search){
+    if (search.length < 2) {
+        return [];
+    }
+    return pokemonList.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(search)
+    );
 }
