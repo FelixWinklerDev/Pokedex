@@ -38,6 +38,13 @@ async function openDetails(id) {
     }
 }
 
+function closeDialog() {
+  let dialogRef = document.getElementById('dialog-container');
+  dialogRef.classList.remove('opened');
+  dialogRef.close();
+}
+
+
 function startSound(url){
     let audio = new Audio(url);
     audio.volume = 0.05;
@@ -58,4 +65,7 @@ async function findPokemon(){
     if (wantedPokemonRef === "") return;
     showLoading();
     let url = `https://pokeapi.co/api/v2/pokemon/${wantedPokemonRef}`;
+        let response = await fetch(url)
+        let pokemonDetails = await response.json();
+
 }
