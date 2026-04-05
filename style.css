@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
-    padding-bottom: 80px;
+    padding-bottom: 10px;
 }
 
 .header-btn{
@@ -42,11 +42,14 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    padding-bottom: 20px;
 }
 
 #content{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .typecard{
@@ -83,18 +86,27 @@
     margin-top: 20px;
 }
 
-.dialogcard{
+#dialogcard{
     height: 700px;
     width: 800px;
     background-color: #777;
 }
 
-.dialogcard::backdrop{
-    opacity: 0.3;
+#dialog-container{
+    scrollbar-width: thin;
+    padding: 0;
 }
 
-.dialogcard.opened{
-    opacity: 037 #333333bb ease-in;
+#dialog-container::backdrop {
+  opacity: 0;
+  background-color: #c1c1c1c1;
+  transition: all 0.25s ease-in;
+}
+
+#dialog-container.opened::backdrop {
+  opacity: 0.85;
+  background-color: #c1c1c1c1;
+  transition: all 0.25s ease-in;
 }
 
 .cry-section{
@@ -106,7 +118,6 @@
 }
 
 .cry{
-    height: 35px;
     width: 35px;
 }
 
@@ -182,4 +193,22 @@
 
 .firstLetterUppercase{
     text-transform: capitalize;
+}
+
+.suggestion-item{
+    background-color: #7b1b1b;
+    color: #fff;
+    cursor: pointer;
+}
+
+.suggestion-txt{
+    margin: 0;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.error-message{
+    height: 20px;
+    background-color: #777;
+    color: #bc2c2c;
 }

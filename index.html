@@ -13,15 +13,18 @@
     <script src="script.js"></script>
     <script src="./scripts/templates.js"></script>
 </head>
-<body onload="getPokemonData()">
+<body onload="getPokemonData(), loadSearchIndex()">
   <header class="header-container" id="topbase">
     <div class="header-wrapper">
       <img class="pokeball" src="./assets/img/95c-pokeball-1594373_1280.png" alt="Pokéball">
       <img class="logo" src="./assets/img/Pekedex.png" alt="Logo">
     </div>  
     <section id="search">
-      <input id="searchInput" type="text">
+      <input id="searchInput" type="text" oninput="processSearchInput()">
       <button class="header-btn" onclick="findPokemon()">search</button>
+    </section>
+    <section id="suggestions">
+      <p id="error-message"></p>
     </section>
   </header>
   <main id="content">
@@ -34,7 +37,7 @@
     <div class="loading-screen">
       <div class="spinner">
         <img class="loading-spinner" src="./assets/icons/alanyadk-pokemon-1536849_640.png" alt="Pokèball">
-        <p>Lade Pokèmon...</p>
+        <p>Loading Pokèmon...</p>
       </div> 
     </div>
   </section>

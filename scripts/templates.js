@@ -22,11 +22,11 @@ function getDialogTemplate(pokemon){
   let type2 = pokemon.types.length > 1 ? pokemon.types[1].type.name : "";
 
   return`
-    <div class="dialogcard">
+    <div id="dialogcard">
       <div class="header-section bg_${pokemon.types[0].type.name}">
         <div class="cry-section bg_${pokemon.types[0].type.name}">
           <button class="cry" onclick="startSound('${pokemon.cries.latest}')"><img class="speaker" src="./assets/icons/josy_dom_alexis-icon-1628258_640.png" alt="Lautsprecher"></button>
-          <button onclick="closeDialog()">X</button>
+          <button class="cry" onclick="closeDialog()"><p>X</p></button>
         </div>
         <div class="flex-head bg_${pokemon.types[0].type.name}">
         <h3>#${pokemon.id}</h3>
@@ -34,11 +34,11 @@ function getDialogTemplate(pokemon){
         </div>
       </div>
       <div class="pokemoncard bg_${pokemon.types[0].type.name}">
-        <img class="dialog-img" src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
+        <img class="dialog-img" src="${pokemon.sprites.other.home.front_default}" alt="${pokemon.name}">
       </div>
-      <section class="">
+      <section class="Infocard">
         <div id="general-info">
-          <h2>General Information</h2>
+          <h2>General Information:</h2>
           <div class="typecard-dialog">
             <p>Type(s):</p>
             <p class="main-type bg_${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p>
@@ -57,7 +57,21 @@ function getDialogTemplate(pokemon){
             <p class="firstLetterUppercase">${pokemon.abilities[0].ability.name}</p>
           </div>
         </div>
+        <div class="stats">
+
+        </div>
       </section>
     </div>
 `
+}
+
+function errorPokemon(){
+  return `${wantedPokemonRef} does not exist.`
+}
+
+function renderPokemonNamesSearchbar(pokemon){
+  return `
+        <div class="suggestion-item" onclick="openDetails('${pokemon.name}')">
+        <p class="suggestion-txt">${pokemon.name}</p>
+        </div>`;
 }

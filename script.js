@@ -1,4 +1,5 @@
 let currentOffset = 0;
+let allPokeNames = [];
 
 async function getPokemonData() {
     showLoading()
@@ -63,13 +64,23 @@ async function findPokemon(){
     let inputRef = document.getElementById('searchInput').value;
     let wantedPokemonRef = inputRef.toLowerCase();
     if (wantedPokemonRef === "") return;
-    showLoading();
-    let url = `https://pokeapi.co/api/v2/pokemon/${wantedPokemonRef}`;
+
+    try{
+        showLoading();
+        let url = `https://pokeapi.co/api/v2/pokemon/${wantedPokemonRef}`;
         let response = await fetch(url)
+    if (!response.ok) {
+        throw Error('Pokemon not Found');
+        }
         let pokemonDetails = await response.json();
-    hideLoading();
-    getPokemonCardTemplate(pokemonDetails);
-    openDetails(wantedPokemonRef);
+        hideLoading();
+        getPokemonCardTemplate(pokemonDetails);
+        openDetails(wantedPokemonRef);
+    }
+    catch(error){
+        hideLoading();
+        document.getElementById('error-message').innerText = errorPokemon()
+    }
 }
 
 function formatToDimensions(dimension) {
@@ -86,4 +97,25 @@ function filterPokemon(search){
     return pokemonList.filter(pokemon =>
         pokemon.name.toLowerCase().includes(search)
     );
+}
+
+async function loadSearchIndex() {
+        let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025');
+        let data = await response.json();
+        allPokeNames = data.results; 
+}
+
+async function processSearchInput() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let suggestionsContainer = document.getElementById('suggestions');
+
+    suggestionsContainer.innerHTML = '';
+
+    if (input.length < 3) return;
+
+    let filtered = allPokeNames.filter(p => p.name.includes(input));
+
+    filtered.slice(0, 5).forEach(pokemon => {
+        suggestionsContainer.innerHTML += renderPokemonNamesSearchbar(pokemon);
+    });
 }
