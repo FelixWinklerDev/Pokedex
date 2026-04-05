@@ -108,7 +108,6 @@ async function loadSearchIndex() {
 async function processSearchInput() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let suggestionsContainer = document.getElementById('suggestions');
-
     suggestionsContainer.innerHTML = '';
 
     if (input.length < 3) return;
@@ -118,4 +117,17 @@ async function processSearchInput() {
     filtered.slice(0, 5).forEach(pokemon => {
         suggestionsContainer.innerHTML += renderPokemonNamesSearchbar(pokemon);
     });
+}
+
+function toggleShiny(normal, shiny) {
+    let imgElement = document.getElementById('dialog-img');
+    let shinyIcon = document.getElementById('shiny-icon');
+    
+    if (imgElement.src === shiny) {
+        imgElement.src = normal;
+        shinyIcon.classList.add('d-none');
+    } else {
+        imgElement.src = shiny;
+        shinyIcon.classList.remove('d-none');
+    }
 }

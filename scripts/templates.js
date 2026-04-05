@@ -26,34 +26,31 @@ function getDialogTemplate(pokemon){
       <div class="header-section bg_${pokemon.types[0].type.name}">
         <div class="cry-section bg_${pokemon.types[0].type.name}">
           <button class="cry" onclick="startSound('${pokemon.cries.latest}')"><img class="speaker" src="./assets/icons/josy_dom_alexis-icon-1628258_640.png" alt="Lautsprecher"></button>
+          <button class="shiny" onclick="toggleShiny('${pokemon.sprites.other.home.front_default}', '${pokemon.sprites.other.home.front_shiny}')"><p>Toggle Shiny</p></button>
           <button class="cry" onclick="closeDialog()"><p>X</p></button>
         </div>
         <div class="flex-head bg_${pokemon.types[0].type.name}">
         <h3>#${pokemon.id}</h3>
         <h3>${pokemon.species.name}</h3>
+        <img id="shiny-icon" class="d-none" src="./assets/icons/shiny.png" alt="shiny-icon">
         </div>
       </div>
       <div class="pokemoncard bg_${pokemon.types[0].type.name}">
-        <img class="dialog-img" src="${pokemon.sprites.other.home.front_default}" alt="${pokemon.name}">
+        <img id="dialog-img" src="${pokemon.sprites.other.home.front_default}" alt="${pokemon.name}">
       </div>
       <section class="Infocard">
         <div id="general-info">
           <h2>General Information:</h2>
-          <div class="typecard-dialog">
-            <p>Type(s):</p>
-            <p class="main-type bg_${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p>
-            ${type2 ? `<p class="secondary-type bg_${pokemon.types[1].type.name}">${type2}</p>` : ''}
+          <div class="flex">
+            <p class="firstLetterUppercase">Height:</p>
+            <p class="firstLetterUppercase">${formatToDimensions(pokemon.height)}m</p>
           </div>
           <div class="flex">
-            <p>Height:</p>
-            <p>${formatToDimensions(pokemon.height)}m</p>
+            <p class="firstLetterUppercase">Weight:</p>
+            <p class="firstLetterUppercase">${formatToDimensions(pokemon.weight)}kg</p>
           </div>
           <div class="flex">
-            <p>Weight:</p>
-            <p>${formatToDimensions(pokemon.weight)}kg</p>
-          </div>
-          <div class="flex">
-            <p>Ability:</p>
+            <p class="firstLetterUppercase">Ability:</p>
             <p class="firstLetterUppercase">${pokemon.abilities[0].ability.name}</p>
           </div>
         </div>

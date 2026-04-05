@@ -118,7 +118,8 @@
 }
 
 .cry{
-    width: 35px;
+    width: 32px;
+    border-radius: 16px;
 }
 
 .speaker{
@@ -170,7 +171,7 @@
             }
 }
 
-.dialog-img{
+#dialog-img{
     background-image: url(assets/icons/ginlimone-monster-ball-8084507_640.png);
     background-repeat: no-repeat;
     background-position: cover;
@@ -193,6 +194,7 @@
 
 .firstLetterUppercase{
     text-transform: capitalize;
+    margin-bottom: 10px;
 }
 
 .suggestion-item{
@@ -211,4 +213,15 @@
     height: 20px;
     background-color: #777;
     color: #bc2c2c;
+}
+
+.shiny{
+    background: #333;
+    color: #fff;
+    border-radius: 20px;
+}
+
+#shiny-icon{
+    height: 30px;
+    width: 30px;
 }
