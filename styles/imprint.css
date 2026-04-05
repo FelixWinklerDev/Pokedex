@@ -1,0 +1,44 @@
+.imprint-page {
+
+
+  a {
+    color: #E76C1F;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  ul,
+  li {
+    font-size: 1.8rem;
+  }
+
+  .operator {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .contact-data {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    padding-top: 50px;
+  }
+
+  .epilogue {
+    padding-bottom: 30px;
+  }
+
+  .seal {
+    padding-bottom: 30px;
+  }
+}
+
+@media(max-width: 880px) {
+  .br-point {
+    overflow-wrap: break-word;
+  }
+}

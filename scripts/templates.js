@@ -29,7 +29,7 @@ function getDialogTemplate(pokemon){
           <button onclick="closeDialog()">X</button>
         </div>
         <div class="flex-head bg_${pokemon.types[0].type.name}">
-        <p>#${pokemon.id}</p>
+        <h3>#${pokemon.id}</h3>
         <h3>${pokemon.species.name}</h3>
         </div>
       </div>
@@ -53,8 +53,8 @@ function getDialogTemplate(pokemon){
             <p>${formatToDimensions(pokemon.weight)}kg</p>
           </div>
           <div class="flex">
-            <p></p>
-            <p></p>
+            <p>Ability:</p>
+            <p class="firstLetterUppercase">${pokemon.abilities[0].ability.name}</p>
           </div>
         </div>
       </section>
