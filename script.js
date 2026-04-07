@@ -148,9 +148,33 @@ function renderInInfocard(tab) {
     if (tab === 'about') {
         cardRef.innerHTML = renderAbout();
     } else if (tab === 'stats') {
-        cardRef.innerHTML = renderBaseStats(); 
-    }
-     else if (tab === 'move') {
+        cardRef.innerHTML = renderBaseStats();
+        const max = 200;
+
+        let kp = currentPokemon.stats[0].base_stat;
+        document.getElementById("kpProgressbar").style.width = (kp / max * 100) + "%";
+        document.getElementById("kpProgressbar").innerText = kp;
+
+        let attack = currentPokemon.stats[1].base_stat;
+        document.getElementById("attackProgressbar").style.width = (attack / max * 100) + "%";
+        document.getElementById("attackProgressbar").innerText = attack;
+
+        let defense = currentPokemon.stats[2].base_stat;
+        document.getElementById("defenseProgressbar").style.width = (defense / max * 100) + "%";
+        document.getElementById("defenseProgressbar").innerText = defense;
+
+        let spattack = currentPokemon.stats[3].base_stat;
+        document.getElementById("spattackProgressbar").style.width = (spattack / max * 100) + "%";
+        document.getElementById("spattackProgressbar").innerText = spattack;
+
+        let spdefense = currentPokemon.stats[4].base_stat;
+        document.getElementById("spdefenseProgressbar").style.width = (spdefense / max * 100) + "%";
+        document.getElementById("spdefenseProgressbar").innerText = spdefense;
+
+        let speed = currentPokemon.stats[5].base_stat;
+        document.getElementById("speedProgressbar").style.width = (speed / max * 100) + "%";
+        document.getElementById("speedProgressbar").innerText = speed;
+    } else if (tab === 'move') {
         cardRef.innerHTML = renderMoveSet(); 
     }
 }

@@ -44,7 +44,7 @@ function getDialogTemplate(pokemon){
         <button id="next-btn" onclick="changePokemon(1)">></button>
       </div>
       <section class="nav-wrapper">
-        <nav class="flex">
+        <nav>
           <button class="nav-btn" onclick="renderAbout('about')">About</button>
           <button class="nav-btn" onclick="renderBaseStats('stats')">Base Stats</button>
           <button class="nav-btn" onclick="renderMoves('move')">Move Set</button>
@@ -88,6 +88,33 @@ return `
     `;
 }
 
-function renderBaseStats(){
-
+function renderBaseStats() {
+    return `
+    <div class="stats-wrapper">
+        <h2>Base Stats</h2>
+        <p>KP: ${currentPokemon.stats[0].base_stat}</p>
+        <div class="maxProgressbar">
+            <div id="kpProgressbar" class="partlyProgressbar"></div>
+        </div>
+        <p>Attack: ${currentPokemon.stats[1].base_stat}</p>
+        <div class="maxProgressbar">
+            <div id="attackProgressbar" class="partlyProgressbar"></div>
+        </div>
+        <p>Defense: ${currentPokemon.stats[2].base_stat}</p>
+        <div class="maxProgressbar">
+            <div id="defenseProgressbar" class="partlyProgressbar"></div>
+        </div>
+        <p>Special Attack: ${currentPokemon.stats[3].base_stat}</p>
+        <div class="maxProgressbar">
+            <div id="spattackProgressbar" class="partlyProgressbar"></div>
+        </div>
+        <p>Special Defense: ${currentPokemon.stats[4].base_stat}</p>
+        <div class="maxProgressbar">
+            <div id="spdefenseProgressbar" class="partlyProgressbar"></div>
+        </div>
+        <p>Speed: ${currentPokemon.stats[5].base_stat}</p>
+        <div class="maxProgressbar">
+            <div id="speedProgressbar" class="partlyProgressbar"></div>
+        </div>
+    </div>`;
 }
