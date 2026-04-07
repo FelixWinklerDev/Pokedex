@@ -34,8 +34,22 @@ async function openDetails(id) {
         dialogRef.innerHTML = getDialogTemplate(pokeData);
         dialogRef.showModal();
         renderInInfocard('about');
+        getDescription(id)
     } catch (error) {
         console.error("Fehler beim Laden der Details:", error);
+    }
+}
+
+async function getDescription(id) {
+    let descriptionRef = document.getElementById('giveDescription');
+    try {
+        let descResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+        let descData = await descResponse.json();
+        let descEntry = descData.flavor_text_entries.find(entry => entry.language.name === 'en');
+//        let cleanText = descEntry.flavor_text.replace('\n', ' ')
+        descriptionRef.innerText = cleanText.flavor_text;
+    } catch (error) {
+        console.error("Beschreibung konnte nicht geladen werden", error);
     }
 }
 
@@ -142,7 +156,6 @@ function changePokemon(direction) {
 
 function renderInInfocard(tab) {
     let cardRef = document.getElementById('infocard');
-    if (!cardRef) return;
     cardRef.innerHTML = "";
 
     if (tab === 'about') {
@@ -150,30 +163,18 @@ function renderInInfocard(tab) {
     } else if (tab === 'stats') {
         cardRef.innerHTML = renderBaseStats();
         const max = 200;
-
         let kp = currentPokemon.stats[0].base_stat;
         document.getElementById("kpProgressbar").style.width = (kp / max * 100) + "%";
-        document.getElementById("kpProgressbar").innerText = kp;
-
         let attack = currentPokemon.stats[1].base_stat;
         document.getElementById("attackProgressbar").style.width = (attack / max * 100) + "%";
-        document.getElementById("attackProgressbar").innerText = attack;
-
         let defense = currentPokemon.stats[2].base_stat;
         document.getElementById("defenseProgressbar").style.width = (defense / max * 100) + "%";
-        document.getElementById("defenseProgressbar").innerText = defense;
-
         let spattack = currentPokemon.stats[3].base_stat;
         document.getElementById("spattackProgressbar").style.width = (spattack / max * 100) + "%";
-        document.getElementById("spattackProgressbar").innerText = spattack;
-
         let spdefense = currentPokemon.stats[4].base_stat;
         document.getElementById("spdefenseProgressbar").style.width = (spdefense / max * 100) + "%";
-        document.getElementById("spdefenseProgressbar").innerText = spdefense;
-
         let speed = currentPokemon.stats[5].base_stat;
         document.getElementById("speedProgressbar").style.width = (speed / max * 100) + "%";
-        document.getElementById("speedProgressbar").innerText = speed;
     } else if (tab === 'move') {
         cardRef.innerHTML = renderMoveSet(); 
     }

@@ -44,10 +44,10 @@ function getDialogTemplate(pokemon){
         <button id="next-btn" onclick="changePokemon(1)">></button>
       </div>
       <section class="nav-wrapper">
-        <nav>
-          <button class="nav-btn" onclick="renderAbout('about')">About</button>
-          <button class="nav-btn" onclick="renderBaseStats('stats')">Base Stats</button>
-          <button class="nav-btn" onclick="renderMoves('move')">Move Set</button>
+        <nav class="nav-position">
+          <button class="nav-btn" onclick="renderInInfocard('about')">About</button>
+          <button class="nav-btn" onclick="renderInInfocard('stats')">Base Stats</button>
+          <button class="nav-btn" onclick="renderInInfocard('move')">Move Set</button>
         </nav>
       </section>
       <section id="infocard">
@@ -84,13 +84,17 @@ return `
         <p>Ability:</p>
         <p class="firstLetterUppercase">${currentPokemon.abilities[0].ability.name}</p>
     </div>
+    <div class="flex">
+        <p>Description:</p>
+        <p id="giveDescription" class="firstLetterUppercase"></p>
+    </div>
   </div>
     `;
 }
 
 function renderBaseStats() {
     return `
-    <div class="stats-wrapper">
+    <div id="stats-wrapper">
         <h2>Base Stats</h2>
         <p>KP: ${currentPokemon.stats[0].base_stat}</p>
         <div class="maxProgressbar">
