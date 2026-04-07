@@ -1,5 +1,6 @@
 let currentOffset = 0;
 let allPokeNames = [];
+let currentPokemon;
 
 async function getPokemonData() {
     showLoading()
@@ -26,16 +27,15 @@ async function renderPokemon(pokemonList) {
 
 async function openDetails(id) {
     let dialogRef = document.getElementById('dialog-container');
-
     try {
         let responseForDialog = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
         let pokeData = await responseForDialog.json();
-
+        currentPokemon = pokeData; 
         dialogRef.innerHTML = getDialogTemplate(pokeData);
         dialogRef.showModal();
-        dialogRef.classList.add('opened');
+        renderInInfocard('about');
     } catch (error) {
-        console.error(error);
+        console.error("Fehler beim Laden der Details:", error);
     }
 }
 
@@ -129,5 +129,28 @@ function toggleShiny(normal, shiny) {
     } else {
         imgElement.src = shiny;
         shinyIcon.classList.remove('d-none');
+    }
+}
+
+function changePokemon(direction) {
+    let idText = document.getElementById('pokemon-id-display').innerText;
+    let currentId = parseInt(idText.replace('#', ''));
+    let newId = currentId + direction;
+    if (newId < 1) return;
+    openDetails(newId);
+}
+
+function renderInInfocard(tab) {
+    let cardRef = document.getElementById('infocard');
+    if (!cardRef) return;
+    cardRef.innerHTML = "";
+
+    if (tab === 'about') {
+        cardRef.innerHTML = renderAbout();
+    } else if (tab === 'stats') {
+        cardRef.innerHTML = renderBaseStats(); 
+    }
+     else if (tab === 'move') {
+        cardRef.innerHTML = renderMoveSet(); 
     }
 }

@@ -42,6 +42,14 @@
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+.pokemoncard-dialog{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 20px;
 }
 
@@ -224,4 +232,44 @@
 #shiny-icon{
     height: 30px;
     width: 30px;
+}
+
+.type-section{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding-bottom: 10px;
+}
+
+.type-icon{
+    height: 30px;
+    width: 30px;
+    border: #111 solid 1px;
+    border-radius: 15px;
+}
+
+.switch-btn{
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: #77777730;
+}
+
+#infocard{
+    background-color: lightgray;
+}
+
+.nav-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.nav-btn{
+    background-color: rgba(118, 193, 255, 0.096);
+    color: blue;
 }
