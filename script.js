@@ -77,6 +77,9 @@ function hideLoading() {
 async function findPokemon(){
     let inputRef = document.getElementById('searchInput').value;
     let wantedPokemonRef = inputRef.toLowerCase();
+    let errorRef = document.getElementById('error-message');
+    errorRef.innerText = "";
+
     if (wantedPokemonRef === "") return;
 
     try{
@@ -93,7 +96,7 @@ async function findPokemon(){
     }
     catch(error){
         hideLoading();
-        document.getElementById('error-message').innerText = errorPokemon()
+        errorRef.innerText = errorPokemon(wantedPokemonRef);
     }
 }
 

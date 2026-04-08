@@ -56,8 +56,8 @@ function getDialogTemplate(pokemon){
 `
 }
 
-function errorPokemon(){
-  return `${wantedPokemonRef} does not exist.`
+function errorPokemon(name){
+  return `${name} does not exist.`
 }
 
 function renderPokemonNamesSearchbar(pokemon){
