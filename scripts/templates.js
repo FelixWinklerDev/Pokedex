@@ -30,30 +30,28 @@ function getDialogTemplate(pokemon){
           <button class="cry" onclick="closeDialog()"><p>X</p></button>
         </div>
         <div class="flex-head bg_${pokemon.types[0].type.name}">
-        <h3 id="pokemon-id-display">#${pokemon.id}</h3>
-        <h3>${pokemon.species.name}</h3>
-        <img id="shiny-icon" class="d-none" src="./assets/icons/shiny.png" alt="shiny-icon">
+          <h3 id="pokemon-id-display">#${pokemon.id}</h3>
+          <h3>${pokemon.species.name}</h3>
+          <img id="shiny-icon" class="d-none" src="./assets/icons/shiny.png" alt="shiny-icon">
+          <img class="type-icon" src="./assets/icons/${pokemon.types[0].type.name}.png" alt="type A">
+          ${type2 ? `<img class="type-icon" src="./assets/icons/${pokemon.types[1].type.name}.png" alt="type B">` : ''}
         </div>
-        <div class="type-section bg_${pokemon.types[0].type.name}">
-        <img class="type-icon" src="./assets/icons/${pokemon.types[0].type.name}.png" alt="type A">
-        ${type2 ? `<img class="type-icon" src="./assets/icons/${pokemon.types[1].type.name}.png" alt="type B">` : ''}
-      </div>
-      <div class="pokemoncard-dialog bg_${pokemon.types[0].type.name}">
-        <button id="previous-btn" onclick="changePokemon(-1)"><</button>
-        <img id="dialog-img" src="${pokemon.sprites.other.home.front_default}" alt="${pokemon.name}">
-        <button id="next-btn" onclick="changePokemon(1)">></button>
-      </div>
-      <section class="nav-wrapper">
-        <nav class="nav-position">
-          <button class="nav-btn" onclick="renderInInfocard('about')">About</button>
-          <button class="nav-btn" onclick="renderInInfocard('stats')">Base Stats</button>
-        </nav>
-      </section>
-      <section id="infocard">
+        <div class="pokemoncard-dialog bg_${pokemon.types[0].type.name}">
+          <button id="previous-btn" onclick="changePokemon(-1)"><</button>
+          <img id="dialog-img" src="${pokemon.sprites.other.home.front_default}" alt="${pokemon.name}">
+          <button id="next-btn" onclick="changePokemon(1)">></button>
+        </div>
+        <section class="nav-wrapper">
+          <nav class="nav-position">
+            <button class="nav-btn" onclick="renderInInfocard('about')">About</button>
+            <button class="nav-btn" onclick="renderInInfocard('stats')">Base Stats</button>
+          </nav>
+        </section>
+        <section id="infocard">
         
-      </section>
-    </div>
-`
+        </section>
+      </div>
+` 
 }
 
 function errorPokemon(name){
@@ -83,7 +81,7 @@ return `
         <p>Ability:</p>
         <p class="firstLetterUppercase">${currentPokemon.abilities[0].ability.name}</p>
     </div>
-    <div class="flex">
+    <div class="description-section">
         <p>Description:</p>
         <p id="giveDescription"></p>
     </div>

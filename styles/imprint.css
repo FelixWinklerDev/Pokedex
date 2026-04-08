@@ -1,4 +1,20 @@
 .imprint-page {
+  h1{
+    margin-left: 10px;
+  }
+
+  h2{
+    margin-left: 10px;
+  }
+
+  h3{
+    margin-left: 10px;
+  }
+
+  p{
+    margin-left: 10px;
+  }
+
   a {
     color: #E76C1F;
   }
@@ -10,28 +26,34 @@
   ul,
   li {
     font-size: 1.8rem;
+    margin-left: 10px;
   }
 
   .operator {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 10px;
   }
 
   .contact-data {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 10px;
   }
 
   .container {
     padding-top: 50px;
+    margin-left: 10px;
   }
 
   .epilogue {
     padding-bottom: 30px;
+    margin-left: 10px;
   }
 
   .seal {
     padding-bottom: 30px;
+    margin-left: 10px;
   }
 }
 

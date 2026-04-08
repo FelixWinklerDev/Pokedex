@@ -17,10 +17,8 @@ async function renderPokemon(pokemonList) {
 
     for (let i = 0; i < pokemonList.length; i++) {
         const pokemonShortInfo = pokemonList[i];
-
         let detailResponse = await fetch(pokemonShortInfo.url);
         let pokemonDetails = await detailResponse.json();
-
         contentContainer.innerHTML += getPokemonCardTemplate(pokemonDetails);
     }
 }
@@ -117,20 +115,17 @@ function filterPokemon(search){
 }
 
 async function loadSearchIndex() {
-        let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025');
-        let data = await response.json();
-        allPokeNames = data.results; 
+    let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025');
+    let data = await response.json();
+    allPokeNames = data.results; 
 }
 
 async function processSearchInput() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let suggestionsContainer = document.getElementById('suggestions');
     suggestionsContainer.innerHTML = '';
-
     if (input.length < 3) return;
-
     let filtered = allPokeNames.filter(p => p.name.includes(input));
-
     filtered.slice(0, 5).forEach(pokemon => {
         suggestionsContainer.innerHTML += renderPokemonNamesSearchbar(pokemon);
     });
@@ -139,7 +134,6 @@ async function processSearchInput() {
 function toggleShiny(normal, shiny) {
     let imgElement = document.getElementById('dialog-img');
     let shinyIcon = document.getElementById('shiny-icon');
-    
     if (imgElement.src === shiny) {
         imgElement.src = normal;
         shinyIcon.classList.add('d-none');
@@ -160,7 +154,6 @@ function changePokemon(direction) {
 function renderInInfocard(tab) {
     let cardRef = document.getElementById('infocard');
     cardRef.innerHTML = "";
-
     if (tab === 'about') {
         cardRef.innerHTML = renderAbout();
     } else if (tab === 'stats') {
