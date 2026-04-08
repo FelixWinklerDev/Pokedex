@@ -46,8 +46,8 @@ async function getDescription(id) {
         let descResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
         let descData = await descResponse.json();
         let descEntry = descData.flavor_text_entries.find(entry => entry.language.name === 'en');
-//        let cleanText = descEntry.flavor_text.replace('\n', ' ')
-        descriptionRef.innerText = cleanText.flavor_text;
+        let cleanText = descEntry.flavor_text.replace(/\s+/g, ' ').trim();
+        descriptionRef.innerText = cleanText;
     } catch (error) {
         console.error("Beschreibung konnte nicht geladen werden", error);
     }
@@ -175,7 +175,5 @@ function renderInInfocard(tab) {
         document.getElementById("spdefenseProgressbar").style.width = (spdefense / max * 100) + "%";
         let speed = currentPokemon.stats[5].base_stat;
         document.getElementById("speedProgressbar").style.width = (speed / max * 100) + "%";
-    } else if (tab === 'move') {
-        cardRef.innerHTML = renderMoveSet(); 
     }
 }
