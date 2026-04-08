@@ -24,7 +24,7 @@ function getDialogTemplate(pokemon){
   return`
     <div id="dialogcard">
       <div class="header-section bg_${pokemon.types[0].type.name}">
-        <div class="cry-section bg_${pokemon.types[0].type.name}">
+        <div class="top-section bg_${pokemon.types[0].type.name}">
           <button class="cry" onclick="startSound('${pokemon.cries.latest}')"><img class="speaker" src="./assets/icons/josy_dom_alexis-icon-1628258_640.png" alt="Lautsprecher"></button>
           <button class="shiny" onclick="toggleShiny('${pokemon.sprites.other.home.front_default}', '${pokemon.sprites.other.home.front_shiny}')"><p>Toggle Shiny</p></button>
           <button class="cry" onclick="closeDialog()"><p>X</p></button>
