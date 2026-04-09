@@ -317,7 +317,6 @@
 
 @media(max-width:1920px) {
     #dialogcard{
-        height: 1500px;
         width: 1000px;
     }
 }

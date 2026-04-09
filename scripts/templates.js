@@ -14,8 +14,7 @@ function getPokemonCardTemplate(pokemon){
           <p class="main-type bg_${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p>
           ${type2 ? `<p class="secondary-type bg_${pokemon.types[1].type.name}">${type2}</p>` : ''}
         </div>
-      </div>
-    `
+      </div>`
 }
 
 function getDialogTemplate(pokemon){
@@ -50,8 +49,7 @@ function getDialogTemplate(pokemon){
         <section id="infocard">
         
         </section>
-      </div>
-` 
+      </div>` 
 }
 
 function errorPokemon(name){
@@ -61,7 +59,7 @@ function errorPokemon(name){
 function renderPokemonNamesSearchbar(pokemon){
   return `
         <div class="suggestion-item" onclick="openDetails('${pokemon.name}')">
-        <p class="suggestion-txt">${pokemon.name}</p>
+          <p class="suggestion-txt">${pokemon.name}</p>
         </div>`;
 }
 
@@ -70,23 +68,22 @@ return `
   <div id="general-info">
     <h2>General Information:</h2>
     <div class="flex">
-        <p>Height:</p>
-        <p>${formatToDimensions(currentPokemon.height)}m</p>
+      <p>Height:</p>
+      <p>${formatToDimensions(currentPokemon.height)}m</p>
     </div>
     <div class="flex">
-        <p>Weight:</p>
-        <p>${formatToDimensions(currentPokemon.weight)}kg</p>
+      <p>Weight:</p>
+      <p>${formatToDimensions(currentPokemon.weight)}kg</p>
     </div>
     <div class="flex">
-        <p>Ability:</p>
-        <p class="firstLetterUppercase">${currentPokemon.abilities[0].ability.name}</p>
+      <p>Ability:</p>
+      <p class="firstLetterUppercase">${currentPokemon.abilities[0].ability.name}</p>
     </div>
     <div class="description-section">
-        <p>Description:</p>
-        <p id="giveDescription"></p>
+      <p>Description:</p>
+      <p id="giveDescription"></p>
     </div>
-  </div>
-    `;
+  </div>`;
 }
 
 function renderBaseStats() {

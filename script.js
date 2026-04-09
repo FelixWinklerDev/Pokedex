@@ -5,8 +5,8 @@ let currentPokemon;
 async function getPokemonData() {
     showLoading()
     let url = `https://pokeapi.co/api/v2/pokemon?limit=24&offset=${currentOffset}`;
-        let response = await fetch(url);
-        let currentResponse = await response.json();
+    let response = await fetch(url);
+    let currentResponse = await response.json();
     await renderPokemon(currentResponse.results);
     currentOffset += 24;
     hideLoading()
@@ -14,7 +14,6 @@ async function getPokemonData() {
 
 async function renderPokemon(pokemonList) {
     let contentContainer = document.getElementById('content');
-
     for (let i = 0; i < pokemonList.length; i++) {
         const pokemonShortInfo = pokemonList[i];
         let detailResponse = await fetch(pokemonShortInfo.url);
@@ -47,7 +46,7 @@ async function getDescription(id) {
         let cleanText = descEntry.flavor_text.replace(/\s+/g, ' ').trim();
         descriptionRef.innerText = cleanText;
     } catch (error) {
-        console.error("Beschreibung konnte nicht geladen werden", error);
+        console.error("description not found", error);
     }
 }
 
@@ -56,7 +55,6 @@ function closeDialog() {
   dialogRef.classList.remove('opened');
   dialogRef.close();
 }
-
 
 function startSound(url){
     let audio = new Audio(url);
@@ -77,10 +75,13 @@ async function findPokemon(){
     let wantedPokemonRef = inputRef.toLowerCase();
     let errorRef = document.getElementById('error-message');
     errorRef.innerText = "";
-
     if (wantedPokemonRef === "") return;
+    findWantedPokemon();
+}
 
-    try{
+async function findWantedPokemon() {
+    let errorRef = document.getElementById('error-message');
+        try{
         showLoading();
         let url = `https://pokeapi.co/api/v2/pokemon/${wantedPokemonRef}`;
         let response = await fetch(url)
@@ -147,7 +148,9 @@ function changePokemon(direction) {
     let idText = document.getElementById('pokemon-id-display').innerText;
     let currentId = parseInt(idText.replace('#', ''));
     let newId = currentId + direction;
-    if (newId < 1) return;
+    if (newId < 1) 
+        
+    return;
     openDetails(newId);
 }
 
@@ -156,6 +159,7 @@ function renderInInfocard(tab) {
     cardRef.innerHTML = "";
     if (tab === 'about') {
         cardRef.innerHTML = renderAbout();
+        getDescription(currentPokemon.id);
     } else if (tab === 'stats') {
         cardRef.innerHTML = renderBaseStats();
         const max = 200;
