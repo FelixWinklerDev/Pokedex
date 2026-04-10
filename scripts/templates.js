@@ -36,9 +36,9 @@ function getDialogTemplate(pokemon){
           ${type2 ? `<img class="type-icon" src="./assets/icons/${pokemon.types[1].type.name}.png" alt="type B">` : ''}
         </div>
         <div class="pokemoncard-dialog bg_${pokemon.types[0].type.name}">
-          <button id="previous-btn" onclick="changePokemon(-1)"><</button>
+          <button class="direction-btn" id="previousBtn" onclick="changePokemon(-1)"><-</button>
           <img id="dialog-img" src="${pokemon.sprites.other.home.front_default}" alt="${pokemon.name}">
-          <button id="next-btn" onclick="changePokemon(1)">></button>
+          <button class="direction-btn" id="nextBtn" onclick="changePokemon(1)">-></button>
         </div>
         <section class="nav-wrapper">
           <nav class="nav-position">

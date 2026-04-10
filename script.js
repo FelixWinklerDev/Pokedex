@@ -148,9 +148,10 @@ function changePokemon(direction) {
     let idText = document.getElementById('pokemon-id-display').innerText;
     let currentId = parseInt(idText.replace('#', ''));
     let newId = currentId + direction;
-    if (newId < 1) 
-        
+    if (newId < 1) {
+    previousBtn.innerHTML = `<p class="disabled">X</p>`
     return;
+    }
     openDetails(newId);
 }
 

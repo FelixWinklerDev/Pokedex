@@ -80,6 +80,10 @@ footer{
 	flex-shrink: 0;
 }
 
+dialog.scroller{
+    scrollbar-color: #777 rgba(0,0,0,0);
+}
+
 @media(max-width:600px) {
     footer{
 		height: 200px;

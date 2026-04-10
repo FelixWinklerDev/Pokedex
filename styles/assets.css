@@ -38,8 +38,13 @@
         width: 80px;
     }
 }
+@media(max-width:650px) {
+    #dialog-img{
+    background-size: 140px;
+    height: 140px;
+    width: 140px;
+    }
 
-@media(max-width:600px) {
     .logo{
         width: 300px;
         margin-top: 10px;
@@ -55,11 +60,5 @@
 @media(max-width:420px) {
     .pokeball{
         display: none;
-    }
-
-    #dialog-img{
-    background-size: 140px;
-    height: 140px;
-    width: 140px;
     }
 }
